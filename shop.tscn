@@ -1,0 +1,487 @@
+[gd_scene load_steps=28 format=3 uid="uid://d1688j6pmif24"]
+
+[ext_resource type="Script" uid="uid://cowh58w2o4s7k" path="res://shop.gd" id="1_gmb2m"]
+[ext_resource type="Texture2D" uid="uid://bu8dmhibyd5cb" path="res://assets/images/in_game/window_out.PNG" id="2_8kdgp"]
+[ext_resource type="Texture2D" uid="uid://r2lfwfspl4gw" path="res://assets/images/in_game/wall.PNG" id="3_myf4l"]
+[ext_resource type="Texture2D" uid="uid://b7astsh0lkt3f" path="res://assets/images/in_game/mail_box.PNG" id="3_p5a0g"]
+[ext_resource type="Texture2D" uid="uid://dkhgkecyons4u" path="res://assets/images/in_game/oven_inside_empty.PNG" id="4_p5a0g"]
+[ext_resource type="Texture2D" uid="uid://bgfyrvvoogft8" path="res://assets/images/in_game/oven_inside_full.PNG" id="5_xqmyw"]
+[ext_resource type="Texture2D" uid="uid://dowrmh5s70ifx" path="res://assets/images/in_game/items.PNG" id="6_sw5c6"]
+[ext_resource type="Texture2D" uid="uid://b7wxmtp66ib1w" path="res://assets/images/chars/luki/crazy.PNG" id="8_e23gp"]
+[ext_resource type="Texture2D" uid="uid://digmyy81o18it" path="res://assets/images/items/pull.PNG" id="8_rrolr"]
+[ext_resource type="Texture2D" uid="uid://bdss701c0wnq5" path="res://assets/images/in_game/shop_out.PNG" id="8_xqmyw"]
+[ext_resource type="Texture2D" uid="uid://butfnpdxblv8h" path="res://assets/images/chars/luki/happy.PNG" id="9_rrolr"]
+[ext_resource type="Texture2D" uid="uid://cxki72okdalvy" path="res://assets/images/chars/luki/normal.PNG" id="10_gldgk"]
+[ext_resource type="Texture2D" uid="uid://dsfy2qq8bbvoy" path="res://assets/images/chars/luki/sad.PNG" id="11_763b7"]
+[ext_resource type="Texture2D" uid="uid://cu2vgist05ah1" path="res://assets/images/chars/luki/tired.PNG" id="12_jtxfs"]
+[ext_resource type="Script" uid="uid://bo4vrglthiyqf" path="res://bread_board_layer.gd" id="14_il0eq"]
+[ext_resource type="Script" uid="uid://sfklqs7pnxwc" path="res://oven_layer.gd" id="15_acxsc"]
+[ext_resource type="Texture2D" uid="uid://geso52uym0tu" path="res://assets/images/items/money.PNG" id="15_jtxfs"]
+[ext_resource type="Texture2D" uid="uid://cvki28spkh5rv" path="res://assets/images/items/arrow.PNG" id="15_k3iel"]
+[ext_resource type="Texture2D" uid="uid://doankxl6jymhh" path="res://assets/images/items/life.PNG" id="16_tuxin"]
+[ext_resource type="Texture2D" uid="uid://yb5g6turvs2e" path="res://assets/images/items/energy.PNG" id="17_8lh4o"]
+[ext_resource type="PackedScene" uid="uid://bmlbuhwif3hyd" path="res://assets/elements/message_box.tscn" id="18_8lh4o"]
+[ext_resource type="PackedScene" uid="uid://cwn4yibnvj7em" path="res://assets/elements/choice_box.tscn" id="19_il0eq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gmb2m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8kdgp"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tuxin"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_e23gp")
+}],
+"loop": true,
+"name": &"crazy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_rrolr")
+}],
+"loop": true,
+"name": &"happy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_gldgk")
+}],
+"loop": true,
+"name": &"normal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_763b7")
+}],
+"loop": true,
+"name": &"sad",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_jtxfs")
+}],
+"loop": true,
+"name": &"tired",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_acxsc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k3iel"]
+
+[node name="Shop" type="Node2D"]
+script = ExtResource("1_gmb2m")
+
+[node name="Refresher" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="InShop" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="ColorRect" parent="InShop"]
+offset_left = -24.0
+offset_top = -40.0
+offset_right = 1232.0
+offset_bottom = 848.0
+color = Color(0.638464, 0.832214, 0.866244, 1)
+
+[node name="WindowOut" type="Sprite2D" parent="InShop/TextureRect"]
+position = Vector2(621, 457)
+texture = ExtResource("2_8kdgp")
+
+[node name="MailBox" type="Sprite2D" parent="InShop"]
+position = Vector2(592, 416)
+texture = ExtResource("3_p5a0g")
+
+[node name="Wall" type="Sprite2D" parent="InShop"]
+position = Vector2(597, 417)
+texture = ExtResource("3_myf4l")
+
+[node name="OvenInsideEmpty" type="Sprite2D" parent="InShop"]
+position = Vector2(597, 417)
+texture = ExtResource("4_p5a0g")
+
+[node name="OvenInsideFull" type="Sprite2D" parent="InShop"]
+visible = false
+position = Vector2(597, 417)
+texture = ExtResource("5_xqmyw")
+
+[node name="Items" type="Sprite2D" parent="InShop"]
+position = Vector2(597, 417)
+texture = ExtResource("6_sw5c6")
+
+[node name="Pull" type="Sprite2D" parent="InShop"]
+position = Vector2(75.5, 665.438)
+scale = Vector2(0.33, 0.262339)
+texture = ExtResource("8_rrolr")
+flip_h = true
+
+[node name="OvenBt" type="Button" parent="InShop"]
+offset_left = 56.0
+offset_top = 208.0
+offset_right = 448.0
+offset_bottom = 608.0
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gmb2m")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8kdgp")
+text = "OVEN"
+
+[node name="MailBoxBt" type="Button" parent="InShop"]
+offset_left = 584.0
+offset_top = 272.0
+offset_right = 840.0
+offset_bottom = 400.0
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gmb2m")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8kdgp")
+text = "MAILBOX"
+
+[node name="BreadBoardBt" type="Button" parent="InShop"]
+offset_left = 544.0
+offset_top = 472.0
+offset_right = 960.0
+offset_bottom = 528.0
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gmb2m")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8kdgp")
+text = "BREAD BOARD"
+
+[node name="PullBt" type="Button" parent="InShop"]
+offset_left = -36.5
+offset_top = 632.0
+offset_right = 195.5
+offset_bottom = 696.0
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gmb2m")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8kdgp")
+text = "GO FRONT"
+
+[node name="Luki" type="AnimatedSprite2D" parent="InShop"]
+position = Vector2(1008, 560)
+scale = Vector2(1.06535, 1.06535)
+sprite_frames = SubResource("SpriteFrames_tuxin")
+animation = &"normal"
+flip_h = true
+
+[node name="BreadBoardLayer" type="CanvasLayer" parent="InShop"]
+visible = false
+script = ExtResource("14_il0eq")
+
+[node name="ColorRect" type="ColorRect" parent="InShop/BreadBoardLayer"]
+offset_left = 104.0
+offset_top = 184.0
+offset_right = 928.0
+offset_bottom = 480.0
+color = Color(0.731099, 0.601774, 0.552996, 1)
+
+[node name="Flour" type="TextureButton" parent="InShop/BreadBoardLayer"]
+custom_minimum_size = Vector2(176, 176)
+offset_left = 128.0
+offset_top = 208.0
+offset_right = 304.0
+offset_bottom = 384.0
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Addon" type="TextureButton" parent="InShop/BreadBoardLayer"]
+custom_minimum_size = Vector2(176, 176)
+offset_left = 408.0
+offset_top = 208.0
+offset_right = 584.0
+offset_bottom = 384.0
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Result" type="TextureButton" parent="InShop/BreadBoardLayer"]
+custom_minimum_size = Vector2(176, 176)
+offset_left = 712.0
+offset_top = 208.0
+offset_right = 888.0
+offset_bottom = 384.0
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="InShop/BreadBoardLayer"]
+offset_left = 336.0
+offset_top = 248.0
+offset_right = 377.0
+offset_bottom = 347.0
+theme_override_font_sizes/font_size = 72
+text = "+"
+
+[node name="Label2" type="Sprite2D" parent="InShop/BreadBoardLayer"]
+position = Vector2(648, 304)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("15_k3iel")
+
+[node name="Label3" type="Label" parent="InShop/BreadBoardLayer"]
+offset_left = 120.0
+offset_top = 392.0
+offset_right = 928.0
+offset_bottom = 464.0
+theme_override_font_sizes/font_size = 29
+text = "Click on inventory and here to add or remove ingradient"
+horizontal_alignment = 1
+
+[node name="QuitBt" type="Button" parent="InShop/BreadBoardLayer"]
+offset_left = 592.0
+offset_top = 432.0
+offset_right = 920.0
+offset_bottom = 472.0
+text = "QUIT"
+
+[node name="Timer" type="Timer" parent="InShop/BreadBoardLayer"]
+wait_time = 0.5
+autostart = true
+
+[node name="OvenLayer" type="CanvasLayer" parent="InShop"]
+visible = false
+script = ExtResource("15_acxsc")
+
+[node name="ColorRect" type="ColorRect" parent="InShop/OvenLayer"]
+offset_left = -16.0
+offset_top = 208.0
+offset_right = 480.0
+offset_bottom = 608.0
+color = Color(0.47788, 0.47788, 0.47788, 1)
+
+[node name="Dough" type="TextureButton" parent="InShop/OvenLayer"]
+offset_top = 240.0
+offset_right = 176.0
+offset_bottom = 416.0
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Result" type="TextureButton" parent="InShop/OvenLayer"]
+offset_left = 272.0
+offset_top = 240.0
+offset_right = 448.0
+offset_bottom = 416.0
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Label2" type="Sprite2D" parent="InShop/OvenLayer"]
+position = Vector2(230, 326)
+scale = Vector2(0.328125, 0.328125)
+texture = ExtResource("15_k3iel")
+
+[node name="Label3" type="Label" parent="InShop/OvenLayer"]
+offset_left = 16.0
+offset_top = 424.0
+offset_right = 448.0
+offset_bottom = 507.0
+theme_override_font_sizes/font_size = 29
+text = "Click on inventory and here to add or take ingradient or product"
+autowrap_mode = 3
+
+[node name="Quit" type="Button" parent="InShop/OvenLayer"]
+offset_left = 320.0
+offset_top = 544.0
+offset_right = 464.0
+offset_bottom = 592.0
+text = "QUIT"
+
+[node name="Timer" type="Timer" parent="InShop/OvenLayer"]
+wait_time = 0.2
+autostart = true
+
+[node name="EndDayBt" type="Button" parent="InShop"]
+offset_left = 8.0
+offset_top = 704.0
+offset_right = 144.0
+offset_bottom = 760.0
+text = "END DAY"
+
+[node name="LookOut" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="LookOut"]
+offset_left = -48.2412
+offset_top = -32.2302
+offset_right = 1209.76
+offset_bottom = 889.77
+color = Color(0.639216, 0.831373, 0.866667, 1)
+
+[node name="Customer" type="TextureRect" parent="LookOut"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 336.0
+offset_top = 104.0
+offset_right = -394.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 2
+
+[node name="ShopOut" type="Sprite2D" parent="LookOut"]
+position = Vector2(600, 420)
+scale = Vector2(1.00503, 1.00719)
+texture = ExtResource("8_xqmyw")
+
+[node name="Pull" type="Sprite2D" parent="LookOut"]
+position = Vector2(1096, 752)
+scale = Vector2(0.328326, 0.328326)
+texture = ExtResource("8_rrolr")
+
+[node name="TalkBt" type="Button" parent="LookOut"]
+offset_left = 216.0
+offset_top = 624.0
+offset_right = 368.0
+offset_bottom = 672.0
+theme_override_font_sizes/font_size = 24
+text = "TALK"
+
+[node name="PullBt" type="Button" parent="LookOut"]
+offset_left = 984.0
+offset_top = 712.0
+offset_right = 1200.0
+offset_bottom = 792.0
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_acxsc")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_k3iel")
+text = "GO BACK"
+
+[node name="Overlay" type="CanvasLayer" parent="."]
+
+[node name="CashBar" type="ProgressBar" parent="Overlay"]
+offset_left = 64.0
+offset_top = 144.0
+offset_right = 376.0
+offset_bottom = 192.0
+step = 0.1
+show_percentage = false
+
+[node name="HealthBar" type="ProgressBar" parent="Overlay"]
+offset_left = 64.0
+offset_top = 88.0
+offset_right = 376.0
+offset_bottom = 136.0
+step = 1.0
+value = 100.0
+show_percentage = false
+
+[node name="EnergyBar" type="ProgressBar" parent="Overlay"]
+offset_left = 64.0
+offset_top = 32.0
+offset_right = 376.0
+offset_bottom = 80.0
+max_value = 15.0
+step = 1.0
+value = 15.0
+show_percentage = false
+
+[node name="Inventory" type="ItemList" parent="Overlay"]
+offset_left = 216.0
+offset_top = 680.0
+offset_right = 960.0
+offset_bottom = 824.0
+allow_reselect = true
+allow_search = false
+max_columns = 0
+same_column_width = true
+fixed_column_width = 40
+icon_mode = 0
+fixed_icon_size = Vector2i(40, 40)
+
+[node name="ControlBts" type="Control" parent="Overlay"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="UseBt" type="Button" parent="Overlay/ControlBts"]
+layout_mode = 2
+offset_left = 216.0
+offset_top = 608.0
+offset_right = 456.0
+offset_bottom = 672.0
+theme_override_font_sizes/font_size = 30
+text = "USE ON SELF"
+
+[node name="TrashBt" type="Button" parent="Overlay/ControlBts"]
+layout_mode = 2
+offset_left = 464.0
+offset_top = 608.0
+offset_right = 704.0
+offset_bottom = 672.0
+theme_override_font_sizes/font_size = 30
+text = "TO TRASH"
+
+[node name="Money" type="Sprite2D" parent="Overlay"]
+position = Vector2(72, 168)
+scale = Vector2(0.34375, 0.34375)
+texture = ExtResource("15_jtxfs")
+
+[node name="Life" type="Sprite2D" parent="Overlay"]
+position = Vector2(72, 120)
+scale = Vector2(0.375, 0.375)
+texture = ExtResource("16_tuxin")
+
+[node name="Energy" type="Sprite2D" parent="Overlay"]
+position = Vector2(64, 56)
+scale = Vector2(0.4375, 0.4375)
+texture = ExtResource("17_8lh4o")
+
+[node name="Dark" type="ColorRect" parent="Overlay"]
+visible = false
+offset_left = -40.0
+offset_top = -8.0
+offset_right = 1272.0
+offset_bottom = 896.0
+color = Color(0, 0, 0, 1)
+
+[node name="MessageBox" parent="Overlay" instance=ExtResource("18_8lh4o")]
+visible = false
+
+[node name="ChoiceBox" parent="Overlay" instance=ExtResource("19_il0eq")]
+
+[node name="DayLb" type="Label" parent="Overlay"]
+offset_left = 1032.0
+offset_top = 8.0
+offset_right = 1176.0
+offset_bottom = 56.0
+theme_override_font_sizes/font_size = 40
+text = "DAY X"
+horizontal_alignment = 2
+
+[connection signal="timeout" from="Refresher" to="." method="_on_refresher_timeout"]
+[connection signal="pressed" from="InShop/OvenBt" to="." method="_on_oven_bt_pressed"]
+[connection signal="pressed" from="InShop/MailBoxBt" to="." method="_on_mail_box_bt_pressed"]
+[connection signal="pressed" from="InShop/BreadBoardBt" to="." method="_on_bread_board_pressed"]
+[connection signal="pressed" from="InShop/PullBt" to="." method="_on_pull_bt_pressed"]
+[connection signal="give" from="InShop/BreadBoardLayer" to="." method="_on_receive_item"]
+[connection signal="quit" from="InShop/BreadBoardLayer" to="." method="_on_layer_quit"]
+[connection signal="pressed" from="InShop/BreadBoardLayer/Flour" to="InShop/BreadBoardLayer" method="_on_flour_pressed"]
+[connection signal="pressed" from="InShop/BreadBoardLayer/Addon" to="InShop/BreadBoardLayer" method="_on_addon_pressed"]
+[connection signal="pressed" from="InShop/BreadBoardLayer/Result" to="InShop/BreadBoardLayer" method="_on_result_pressed"]
+[connection signal="pressed" from="InShop/BreadBoardLayer/QuitBt" to="InShop/BreadBoardLayer" method="_on_quit_bt_pressed"]
+[connection signal="timeout" from="InShop/BreadBoardLayer/Timer" to="InShop/BreadBoardLayer" method="_on_timer_timeout"]
+[connection signal="give" from="InShop/OvenLayer" to="." method="_on_receive_item"]
+[connection signal="quit" from="InShop/OvenLayer" to="." method="_on_layer_quit"]
+[connection signal="pressed" from="InShop/OvenLayer/Dough" to="InShop/OvenLayer" method="_on_dough_pressed"]
+[connection signal="pressed" from="InShop/OvenLayer/Result" to="InShop/OvenLayer" method="_on_result_pressed"]
+[connection signal="pressed" from="InShop/OvenLayer/Quit" to="InShop/OvenLayer" method="_on_quit_bt_pressed"]
+[connection signal="timeout" from="InShop/OvenLayer/Timer" to="InShop/OvenLayer" method="_on_timer_timeout"]
+[connection signal="pressed" from="InShop/EndDayBt" to="." method="_on_end_day_bt_pressed"]
+[connection signal="pressed" from="LookOut/TalkBt" to="." method="_on_talk_bt_pressed"]
+[connection signal="pressed" from="LookOut/PullBt" to="." method="_on_pull_bt_pressed"]
+[connection signal="focus_exited" from="Overlay/Inventory" to="." method="_on_inventory_focus_exited"]
+[connection signal="item_clicked" from="Overlay/Inventory" to="." method="_on_inventory_item_clicked"]
+[connection signal="pressed" from="Overlay/ControlBts/UseBt" to="." method="_on_use_bt_pressed"]
+[connection signal="pressed" from="Overlay/ControlBts/TrashBt" to="." method="_on_trash_bt_pressed"]

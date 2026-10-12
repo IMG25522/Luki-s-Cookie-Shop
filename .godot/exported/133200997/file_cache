@@ -1,0 +1,9 @@
+res://assets/elements/choice_box.tscn::24c003db35a23c271a1387a0a07c3b61::1791632094::res://.godot/exported/133200997/export-ef0a8d9e92422b36e5a7b42bcc8ce1b1-choice_box.scn
+res://assets/elements/frame_less_message.tscn::4272781e2da6c84448e20a13c5df5c52::1791632094::res://.godot/exported/133200997/export-32437754865318966115a812af19f10b-frame_less_message.scn
+res://assets/elements/message_box.tscn::daaa3b092ed2df45554844f3429a6678::1791632118::res://.godot/exported/133200997/export-b03d1b5692e8b113e91e84372b1adba2-message_box.scn
+res://letter_transition.tscn::f7a3821b0fd6a468c7f2445eeb78be18::1791798214::res://.godot/exported/133200997/export-00747b7300ac276f59ac12330261d00f-letter_transition.scn
+res://main.tscn::bb4b676e38cd47a842dbc6a2fb135e9f::1791798213::res://.godot/exported/133200997/export-3070c538c03ee49b7677ff960a3f5195-main.scn
+res://game_over.tscn::088ef06349eea35c6844ecf3729fb9f6::1791798214::res://.godot/exported/133200997/export-d8e4acb474e0f28479495aaad84d873f-game_over.scn
+res://good_ending.tscn::c7a5962592dd8dfb97e691a40e219048::1791798214::res://.godot/exported/133200997/export-ae9679d14b17032a286f32909b5ba2cb-good_ending.scn
+res://mid_ending.tscn::c8209f0729b158cefc31ac07e4ca9946::1791798214::res://.godot/exported/133200997/export-7f045768816588e4dbc1e70653983e44-mid_ending.scn
+res://shop.tscn::ebe7383d390eaf86080952d2e91aceba::1791798226::res://.godot/exported/133200997/export-6e1f46ea5549f1acd5111fcfb51be4b1-shop.scn

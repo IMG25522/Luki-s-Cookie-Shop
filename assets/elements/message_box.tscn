@@ -1,0 +1,55 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmlbuhwif3hyd"]
+
+[ext_resource type="Script" uid="uid://ce1yp0cig0460" path="res://assets/elements/message_box.gd" id="1_i543c"]
+[ext_resource type="PackedScene" uid="uid://df3b7sl4h23qs" path="res://assets/elements/frame_less_message.tscn" id="2_6eoa5"]
+
+[node name="MessageBox" type="Button"]
+custom_minimum_size = Vector2(1176, 0)
+offset_left = 8.0
+offset_top = 552.0
+offset_right = 1184.0
+offset_bottom = 824.0
+size_flags_vertical = 8
+script = ExtResource("1_i543c")
+
+[node name="DotLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -24.0
+offset_top = -80.0
+offset_right = 16.0
+offset_bottom = 8.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 64
+text = "."
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="HeadImage" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 1.52588e-05
+offset_top = 8.0
+offset_right = 128.0
+offset_bottom = 136.0
+scale = Vector2(1.875, 1.875)
+stretch_mode = 5
+
+[node name="Container" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 1176.0
+offset_bottom = 272.0
+
+[node name="FrameLessMessage" parent="Container" instance=ExtResource("2_6eoa5")]
+custom_minimum_size = Vector2(1176, 0)
+layout_mode = 2
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://df3b7sl4h23qs"]
+
+[ext_resource type="Script" uid="uid://doo0ol65acjiw" path="res://assets/elements/frame_less_message.gd" id="1_j2ucy"]
+
+[node name="FrameLessMessage" type="Label"]
+custom_minimum_size = Vector2(216, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 1
+mouse_filter = 1
+theme_override_font_sizes/font_size = 30
+autowrap_mode = 3
+justification_flags = 162
+script = ExtResource("1_j2ucy")

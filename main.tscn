@@ -1,0 +1,87 @@
+[gd_scene load_steps=8 format=3 uid="uid://dgtdwqg3gdlyb"]
+
+[ext_resource type="Script" uid="uid://bbs5glmr4e3gi" path="res://code/front_page/canvas_layer.gd" id="1_7mycd"]
+[ext_resource type="Script" uid="uid://voxsh5ix4mm7" path="res://code/front_page/main.gd" id="1_272bh"]
+[ext_resource type="Texture2D" uid="uid://bdcqpgnelbd56" path="res://assets/images/front_page/back.PNG" id="1_lquwl"]
+[ext_resource type="Texture2D" uid="uid://db818rse04lfd" path="res://assets/images/front_page/leaves.PNG" id="2_7mycd"]
+[ext_resource type="Texture2D" uid="uid://d060m66s5fcc" path="res://assets/images/front_page/shop.PNG" id="3_272bh"]
+[ext_resource type="Texture2D" uid="uid://bolmmbb38n2c4" path="res://assets/images/front_page/sky.PNG" id="4_5vw27"]
+[ext_resource type="Texture2D" uid="uid://cjkeb0rao3vhk" path="res://assets/images/front_page/tree_rod.PNG" id="5_kek77"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_272bh")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("1_7mycd")
+para_streth = 30000.0
+
+[node name="Sky" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(595.8, 418.8)
+scale = Vector2(1.4, 1.4)
+texture = ExtResource("4_5vw27")
+
+[node name="ParallaxBack" type="Parallax2D" parent="CanvasLayer"]
+scroll_scale = Vector2(0.2, 0.2)
+scroll_offset = Vector2(-16, -10)
+
+[node name="Back" type="Sprite2D" parent="CanvasLayer/ParallaxBack"]
+position = Vector2(611.8, 428.8)
+scale = Vector2(1.4, 1.4)
+texture = ExtResource("1_lquwl")
+
+[node name="ParallaxShop" type="Parallax2D" parent="CanvasLayer"]
+scroll_scale = Vector2(0.55, 0.55)
+scroll_offset = Vector2(-16, -10)
+
+[node name="Shop" type="Sprite2D" parent="CanvasLayer/ParallaxShop"]
+position = Vector2(614.8, 385.8)
+scale = Vector2(1.4, 1.4)
+texture = ExtResource("3_272bh")
+
+[node name="ParallaxTreeRod" type="Parallax2D" parent="CanvasLayer"]
+scroll_scale = Vector2(0.83, 0.83)
+scroll_offset = Vector2(-16, -10)
+
+[node name="TreeRod" type="Sprite2D" parent="CanvasLayer/ParallaxTreeRod"]
+position = Vector2(611.8, 428.8)
+scale = Vector2(1.4, 1.4)
+texture = ExtResource("5_kek77")
+
+[node name="ParallaxLeaves" type="Parallax2D" parent="CanvasLayer"]
+scroll_scale = Vector2(0.9, 0.9)
+scroll_offset = Vector2(-16, -10)
+
+[node name="Leaves" type="Sprite2D" parent="CanvasLayer/ParallaxLeaves"]
+position = Vector2(611.8, 428.8)
+scale = Vector2(1.4, 1.4)
+texture = ExtResource("2_7mycd")
+
+[node name="ParallaxStartBt" type="Parallax2D" parent="CanvasLayer"]
+scroll_scale = Vector2(0.95, 0.95)
+
+[node name="StartBt" type="Button" parent="CanvasLayer/ParallaxStartBt"]
+offset_left = 64.0
+offset_top = 656.0
+offset_right = 472.0
+offset_bottom = 728.0
+text = "START"
+
+[node name="ParallaxName" type="Parallax2D" parent="CanvasLayer"]
+scroll_scale = Vector2(0.8, 0.8)
+scroll_offset = Vector2(-16, -10)
+
+[node name="Label" type="Label" parent="CanvasLayer/ParallaxName"]
+offset_left = 32.0
+offset_top = 306.0
+offset_right = 1181.0
+offset_bottom = 481.0
+theme_override_font_sizes/font_size = 128
+text = "Luki's Cookie Shop"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Camera2D" type="Camera2D" parent="CanvasLayer"]
+position = Vector2(598.8, 417.8)
+scale = Vector2(1.4, 1.4)
+
+[connection signal="pressed" from="CanvasLayer/ParallaxStartBt/StartBt" to="." method="_on_start_bt_pressed"]

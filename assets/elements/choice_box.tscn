@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwn4yibnvj7em"]
+
+[ext_resource type="PackedScene" uid="uid://df3b7sl4h23qs" path="res://assets/elements/frame_less_message.tscn" id="1_dpaej"]
+[ext_resource type="Script" uid="uid://bk0vcsuk55pak" path="res://assets/elements/choice_box.gd" id="1_sv5gv"]
+
+[node name="ChoiceBox" type="Button"]
+visible = false
+offset_left = 8.0
+offset_top = 552.0
+offset_right = 1184.0
+offset_bottom = 824.0
+size_flags_vertical = 8
+script = ExtResource("1_sv5gv")
+
+[node name="DotLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -24.0
+offset_top = -80.0
+offset_right = 16.0
+offset_bottom = 8.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 64
+text = "."
+
+[node name="Timer_2" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FrameLessMessage" parent="VBoxContainer" instance=ExtResource("1_dpaej")]
+layout_mode = 2
+
+[node name="ItemList" type="ItemList" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_font_sizes/font_size = 20
+auto_height = true
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="timeout" from="Timer_2" to="." method="_on_timer_timeout"]
